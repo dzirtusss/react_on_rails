@@ -13,7 +13,7 @@ const ctx = context();
 
 const DEFAULT_OPTIONS = {
   traceTurbolinks: false,
-  exceptionLogger: function(e) {}
+  exceptionLogger: function (e) {}
 };
 
 ctx.ReactOnRails = {
