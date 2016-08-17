@@ -431,6 +431,13 @@ header = ReactOnRails.authenticityHeaders(otherHeader);
 
 If you are using [jquery-ujs](https://github.com/rails/jquery-ujs) for AJAX calls, than these helpers are not needed because the [jquery-ujs](https://github.com/rails/jquery-ujs) library updates header automatically, see [jquery-ujs documentation](https://robots.thoughtbot.com/a-tour-of-rails-jquery-ujs#cross-site-request-forgery-protection).
 
+#### Using custom JavaScript loggers
+
+If you want to use some other JavaScript logger instead of default `console.log`, you could setup it via custom hook as follows:
+```
+ReactOnRails.setOption('exceptionLogger') = myCustomLogger('myArbitraryOptions');
+```
+
 ## React Router
 [React Router](https://github.com/reactjs/react-router) is supported, including server side rendering! See:
 

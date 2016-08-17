@@ -57,8 +57,9 @@ ctx.ReactOnRails = {
   /**
    * Set options for ReactOnRails, typically before you call ReactOnRails.register
    * Available Options:
-   * `traceTurbolinks: true|false Gives you debugging messages on Turbolinks events
-   * `exceptionLogger: function (optional) Caught exceptions will be passed to this function
+   * `traceTurbolinks`: true|false Gives you debugging messages on Turbolinks events
+   * `exceptionLogger`: function (optional) If defined, than caught exceptions will be
+   * passed to this function, otherwise console.log will be used by default
    */
   setOptions(options) {
     if (options.hasOwnProperty('traceTurbolinks')) {
