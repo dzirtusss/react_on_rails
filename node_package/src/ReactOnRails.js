@@ -68,7 +68,8 @@ ctx.ReactOnRails = {
     }
 
     if (options.hasOwnProperty('exceptionLogger')) {
-      if (typeof options.exceptionLogger !== 'function') {
+      if (typeof options.exceptionLogger !== 'function'
+          && options.exceptionLogger != false) {
         throw new Error(
           'Invalid exceptionLogger passed to ReactOnRails.options: ',
           JSON.stringify(options)

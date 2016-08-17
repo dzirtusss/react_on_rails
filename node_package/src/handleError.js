@@ -35,8 +35,15 @@ component \'${name}\' is not a generator function.\n${lastLine}`;
   return msg;
 }
 
-export default (options) => {
+export default (options) =>
+{
   const { e, jsCode, serverSide } = options;
+  const customExceptionLogger = ReactOnRails.option('exceptionLogger');
+
+  if (typeof customExceptionLogger == 'function') {
+    customExceptionLogger(e);
+    return;
+  }
 
   console.error('Exception in rendering!');
 
@@ -57,12 +64,9 @@ export default (options) => {
     msg += `Exception in rendering!
 ${e.fileName ? `\nlocation: ${e.fileName}:${e.lineNumber}` : ''}
 Message: ${e.message}
-
 ${e.stack}`;
 
     const reactElement = React.createElement('pre', null, msg);
     return ReactDOMServer.renderToString(reactElement);
   }
-
-  ReactOnRails.options('exceptionLogger')(e);
 };
