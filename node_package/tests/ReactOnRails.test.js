@@ -44,12 +44,15 @@ test('ReactOnRails accepts traceTurbolinks as an option false', (assert) => {
 
 test('ReactOnRails accepts exceptionLogger as an option function', (assert) => {
   ReactOnRails.resetOptions();
-  assert.plan(1);
+  assert.plan(2);
   const logger = function () {};
 
   ReactOnRails.setOptions({ exceptionLogger: logger });
   const actual = ReactOnRails.option('exceptionLogger');
-  assert.equal(actual, logger);
+  assert.ok(typeof ReactOnRails.option('exceptionLogger') == 'function',
+    'exceptionLogger function exists in ReactOnRails API');
+  assert.equal(actual, logger,
+    'exceptionLogger is correctly setup');
 });
 
 test('ReactOnRails throws an error for an invalid exceptionLogger', (assert) => {
